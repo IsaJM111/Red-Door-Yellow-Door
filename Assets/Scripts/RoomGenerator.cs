@@ -62,8 +62,9 @@ public class RoomGenerator : MonoBehaviour
             new Vector3(width + 0.25f, 0.1f, depth + 0.25f),
             new Vector3(0f, 0f, 0f),
             room.transform
+            
         );
-
+        colorWhite roomColor = room.AddComponent<colorWhite>();
         // Ceiling
         CreatePart(
             "Ceiling",

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChangeColor4 : MonoBehaviour
+public class colorWhite : MonoBehaviour
 {
     void Start()
     {
