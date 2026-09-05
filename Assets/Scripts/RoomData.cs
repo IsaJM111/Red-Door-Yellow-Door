@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class RoomData : MonoBehaviour
 {
-    public float width;
-    public float depth;
+    public int width;
+    public int depth;
 
     // 0 = North
     // 1 = South
@@ -15,5 +15,6 @@ public class RoomData : MonoBehaviour
     // 2 = East
     // 3 = West
     public int doorwayWall;
+    public int roomID;
     public Transform doorTransform;
 }

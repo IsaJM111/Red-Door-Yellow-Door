@@ -5,16 +5,16 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 1.5f;
     [SerializeField] private float gravity = -20f;
 
     [Header("Crouching")]
     [SerializeField] private float standingHeight = 2f;
     [SerializeField] private float crouchingHeight = 1f;
-    [SerializeField] private float crouchingSpeed = 2.5f;
+    [SerializeField] private float crouchingSpeed = 0.5f;
 
     [Header("Sprinting")]
-    [SerializeField] private float sprintingSpeed = 10f;
+    [SerializeField] private float sprintingSpeed = 3f;
 
     private CharacterController controller;
     private float verticalVelocity;

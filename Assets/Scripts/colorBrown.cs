@@ -5,6 +5,6 @@ public class colorBrown : MonoBehaviour
     void Start()
     {
         Renderer rend = GetComponent<Renderer>();
-        rend.material.color = Color.saddleBrown;
+        rend.material.color = Random.ColorHSV();
     }
 }

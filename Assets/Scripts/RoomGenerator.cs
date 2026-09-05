@@ -3,11 +3,11 @@ using UnityEngine;
 public class RoomGenerator : MonoBehaviour
 {
     [Header("Room Size")]
-    public float minWidth = 6f;
-    public float maxWidth = 20f;
+    public int minWidth = 20;
+    public int maxWidth = 40;
 
-    public float minDepth = 6f;
-    public float maxDepth = 20f;
+    public int minDepth = 20;
+    public int maxDepth = 40;
 
     public float roomHeight = 4f;
 
@@ -31,8 +31,8 @@ public class RoomGenerator : MonoBehaviour
 
     public GameObject GenerateRoom()
     {
-        float width = Random.Range(minWidth, maxWidth);
-        float depth = Random.Range(minDepth, maxDepth);
+        int width = (int)Random.Range(minWidth, maxWidth);
+        int depth = (int)Random.Range(minDepth, maxDepth);
 
         // Pick a random wall.
         int doorWall = Random.Range(0, 4);
@@ -42,12 +42,12 @@ public class RoomGenerator : MonoBehaviour
     }
     public GameObject GenerateRoom(int doorWall, int doorwayWall)
     {
-        float width = Random.Range(minWidth, maxWidth);
-        float depth = Random.Range(minDepth, maxDepth);
+        int width = (int)Random.Range(minWidth, maxWidth);
+        int depth = (int)Random.Range(minDepth, maxDepth);
         return GenerateRoom(width, depth, doorWall, doorwayWall);
     }
 
-    public GameObject GenerateRoom(float width,float depth,int doorWall, int doorwayWall)
+    public GameObject GenerateRoom(int width, int depth ,int doorWall, int doorwayWall)
     {
         GameObject room = new GameObject("Room");
         RoomData roomData = room.AddComponent<RoomData>();
@@ -80,7 +80,7 @@ public class RoomGenerator : MonoBehaviour
 
         // Create the actual door.
         CreateDoor(room.transform, width, depth, doorWall);
-
+        Debug.Log("Room -> Width: " + width + " Depth: " + depth);
         return room;
     }
 

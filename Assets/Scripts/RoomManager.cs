@@ -164,6 +164,11 @@ public class RoomManager : MonoBehaviour
         }
     }
 
+    private void RoomNumManagment()
+    {
+        numRooms--;
+    }
+
     private int GetOppositeWall(int wall)
     {
         switch (wall)
