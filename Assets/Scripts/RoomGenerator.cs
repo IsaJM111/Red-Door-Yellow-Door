@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
@@ -81,17 +83,37 @@ public class RoomGenerator : MonoBehaviour
 
         // Create the actual door.
         CreateDoor(room.transform, width, depth, doorWall);
+        // Generate Furniture.
+        CreateFurniture(room.transform, width, depth);
+        GenerateRoomLight(room.transform);
         Debug.Log("Room -> Width: " + width + " Depth: " + depth);
         return room;
     }
+    private void GenerateRoomLight(Transform parent)
+    {
+        GameObject light = GameObject.CreatePrimitive(
+            PrimitiveType.Cylinder
+        );
+        light.name = "Light";
+        light.transform.SetParent(parent.transform);
+        light.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+        light.transform.localPosition = new Vector3(0f,roomHeight-0.05f,0f);
+        light.transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);
+        colorBrown lightingColor = light.AddComponent<colorBrown>();
+        Light lighting = light.AddComponent<Light>();
 
-    private void GenerateNorthWall(
-        Transform parent,
-        float width,
-        float depth,
-        bool hasDoor,
-        bool doorway
-    )
+        lighting.type = LightType.Directional; // You can choose other types like Directional, Spot, etc.
+        lighting.intensity = 0.5f;
+        lighting.range = 20.0f;
+        lighting.color = Random.ColorHSV();
+
+    }
+
+    private void CreateFurniture(Transform parent, int width, int depth)
+    {
+
+    }
+    private void GenerateNorthWall(Transform parent,float width, float depth,bool hasDoor, bool doorway)
     {
         if (!hasDoor && !doorway)
         {
