@@ -27,7 +27,6 @@ public class RoomManager : MonoBehaviour
 
         // use the Vector3 constructor
         currentRoom.transform.position = new Vector3(0f, 0f, 2f);
-
         Debug.Log("First room generated!");
     }
 

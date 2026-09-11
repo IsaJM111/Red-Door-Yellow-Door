@@ -1,14 +1,15 @@
+using System;
 using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-
+using Random = UnityEngine.Random; 
 public class RoomGenerator : MonoBehaviour
 {
     [Header("Room Size")]
-    public int minWidth = 20;
+    public int minWidth = 4;
     public int maxWidth = 40;
 
-    public int minDepth = 20;
+    public int minDepth = 4;
     public int maxDepth = 40;
 
     public float roomHeight = 4f;
@@ -33,8 +34,8 @@ public class RoomGenerator : MonoBehaviour
 
     public GameObject GenerateRoom()
     {
-        int width = (int)Random.Range(minWidth, maxWidth);
-        int depth = (int)Random.Range(minDepth, maxDepth);
+        int width = (int)Random.Range(minWidth, maxWidth)/2;
+        int depth = (int)Random.Range(minDepth, maxDepth)/2;
 
         // Pick a random wall.
         int doorWall = Random.Range(0, 4);
@@ -44,8 +45,8 @@ public class RoomGenerator : MonoBehaviour
     }
     public GameObject GenerateRoom(int doorWall, int doorwayWall)
     {
-        int width = (int)Random.Range(minWidth, maxWidth);
-        int depth = (int)Random.Range(minDepth, maxDepth);
+        int width = (int)Random.Range(minWidth, maxWidth)/2;
+        int depth = (int)Random.Range(minDepth, maxDepth)/2;
         return GenerateRoom(width, depth, doorWall, doorwayWall);
     }
 
@@ -66,7 +67,6 @@ public class RoomGenerator : MonoBehaviour
             room.transform
             
         );
-        colorWhite roomColor = room.AddComponent<colorWhite>();
         // Ceiling
         CreatePart(
             "Ceiling",
@@ -84,7 +84,8 @@ public class RoomGenerator : MonoBehaviour
         // Create the actual door.
         CreateDoor(room.transform, width, depth, doorWall);
         // Generate Furniture.
-        CreateFurniture(room.transform, width, depth);
+        CreateFurniture(room.transform, width, depth, doorWall);
+        // Generate room light
         GenerateRoomLight(room.transform);
         Debug.Log("Room -> Width: " + width + " Depth: " + depth);
         return room;
@@ -109,9 +110,33 @@ public class RoomGenerator : MonoBehaviour
 
     }
 
-    private void CreateFurniture(Transform parent, int width, int depth)
+    private void CreateFurniture(Transform parent, float width, float depth, int doorWall)
     {
-
+        int door = doorWall;
+        int halfX = (int)width / 2;
+        int halfY = (int)depth / 2;
+        int numF = (int)((width + depth) / 6f);
+        for (int i = 1; i <= numF; i++)
+        {
+            Debug.Log("num X furniture: " + i);
+            GameObject furniture = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            furniture.name = "subWall";
+            furniture.transform.SetParent(parent.transform);
+            furniture.transform.localPosition = new Vector3(
+                (int)Random.Range(0f, width) - halfX,
+                2f,
+                (int)Random.Range(0f, depth) - halfY
+            );
+            furniture.transform.localScale = new Vector3(6f, 4f, 0.25f);
+            int rotationIndex = (int)Random.Range(0, 2);
+            if (rotationIndex == 0)
+            {
+                furniture.transform.localEulerAngles = Vector3.zero;
+            } else
+            {
+                furniture.transform.localEulerAngles = new Vector3(0f, 90f, 0f);
+            }
+        }
     }
     private void GenerateNorthWall(Transform parent,float width, float depth,bool hasDoor, bool doorway)
     {
