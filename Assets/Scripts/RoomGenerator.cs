@@ -103,8 +103,8 @@ public class RoomGenerator : MonoBehaviour
         colorBrown lightingColor = light.AddComponent<colorBrown>();
         Light lighting = light.AddComponent<Light>();
 
-        lighting.type = LightType.Directional; // You can choose other types like Directional, Spot, etc.
-        lighting.intensity = 0.5f;
+        lighting.type = LightType.Point; // You can choose other types like Directional, Spot, etc.
+        lighting.intensity = 100f;
         lighting.range = 20.0f;
         lighting.color = Random.ColorHSV();
 
