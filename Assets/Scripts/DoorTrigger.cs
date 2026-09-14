@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -17,10 +18,19 @@ public class DoorTrigger : MonoBehaviour
         if (activated)
             return;
 
-        activated = true;
-        Debug.Log("Player entered the door!");
-        RoomManager.Instance.GenerateNextRoom(this);
-        canActivate = false;
-        Destroy(transform.parent.gameObject);
+        int levelChance = (int)Random.Range(1, 101);
+        if (levelChance >= 99)
+        {
+            activated = true;
+            Debug.Log("Player entered the door!");
+            RoomManager.Instance.GenerateNextRoom(this);
+            canActivate = false;
+            Destroy(transform.parent.gameObject);
+        }
+        else if (levelChance <= 99)
+        {
+            SceneManager.LoadSceneAsync("MeadowLevel");
+        }
+        
     }
 }
