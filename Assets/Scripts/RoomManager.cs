@@ -21,7 +21,7 @@ public class RoomManager : MonoBehaviour
 
     int numRooms = 1;
 
-    private void GenerateFirstRoom()
+    public void GenerateFirstRoom()
     {
         currentRoom = roomGenerator.GenerateRoom();
 

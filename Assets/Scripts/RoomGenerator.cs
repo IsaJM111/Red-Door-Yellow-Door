@@ -361,7 +361,7 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    private void CreateDoor(
+    public void CreateDoor(
         Transform parent,
         float width,
         float depth,
