@@ -13,7 +13,7 @@ public class Credits : MonoBehaviour
     IEnumerator DelayFunction()
     {
         Debug.Log("Before delay");
-        yield return new WaitForSeconds(35); // Delay for 5 seconds
+        yield return new WaitForSeconds(34); // Delay for 5 seconds
         Debug.Log("After delay");
         SceneManager.LoadSceneAsync("StartScene");
     }
