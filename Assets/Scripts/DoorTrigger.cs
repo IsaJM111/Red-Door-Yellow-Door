@@ -19,6 +19,7 @@ public class DoorTrigger : MonoBehaviour
             return;
 
         int levelChance = (int)Random.Range(1, 101);
+        Debug.Log(levelChance);
         if (levelChance >= 99)
         {
             activated = true;
@@ -27,10 +28,15 @@ public class DoorTrigger : MonoBehaviour
             canActivate = false;
             Destroy(transform.parent.gameObject);
         }
-        else if (levelChance <= 99)
+        else if (levelChance >= 50)
         {
             SceneManager.LoadSceneAsync("MeadowLevel");
         }
-        
+        else
+        {
+            SceneManager.LoadSceneAsync("ClockLevel");
+        }
+
+
     }
 }
