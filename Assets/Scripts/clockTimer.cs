@@ -15,7 +15,7 @@ public class ClockDeath : MonoBehaviour
         Debug.Log("Before delay");
         yield return new WaitForSeconds(66); // Delay for 5 seconds
         Debug.Log("After delay");
-        SceneManager.LoadSceneAsync("Credt Scene");
+        SceneManager.LoadSceneAsync("CreditScene");
     }
 
     // Update is called once per frame
