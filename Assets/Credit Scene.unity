@@ -189,44 +189,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RED DOOR YELLOW DOOR
-
-
-    -<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-
-
-
-    Made
-    with Unity
-
-
-    -<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-
-
-
-    Created by:
-
-
-    Isadora
-    Marta
-
-
-    Sound and music design by:
-
-
-    Augustine Marta
-
-
-    Special thanks
-    to:
-
-
-    Jessica and Daniel Marta
-
-
-    -<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-
-
-
-    Thank
-    you for playing'
+  m_text: "RED DOOR YELLOW DOOR\n\n-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-\n\nMade with
+    Unity\n\n-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-\n\nCreated by:\n\nIsadora Marta\n\nSound
+    and music design by:\n\nAugustine Marta\n\nSpecial thanks to:\n\nJessica and
+    Daniel Marta\n\n-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-\n\n\xA9 2026 Isadora Marta\n\n-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-\n\nThank
+    you for playing"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -338,7 +305,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
