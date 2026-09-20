@@ -1,10 +1,13 @@
-using UnityEngine;
 using System.Collections;
+using Unity.VectorGraphics;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MDoorTrigger : MonoBehaviour
 {
-   private bool activated = false;
+    [SerializeField] private FadeController fadeController;
+
+    private bool activated = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +20,14 @@ public class MDoorTrigger : MonoBehaviour
             return;
         activated = true;
         Debug.Log("Player entered the door!");
-        SceneManager.LoadSceneAsync("MainScene");
+
+        if (fadeController == null)
+        {
+            Debug.LogError("fadeController is not assigned");
+            return;
+        }
+        fadeController.LoadNextScene("MainScene");
+
         RoomManager.Instance.GenerateFirstRoom();
     }
 }
