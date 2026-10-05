@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class DoorTrigger : MonoBehaviour
 {
     public int doorWall;
-    private bool canActivate = true;
     private bool activated = false;
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +24,6 @@ public class DoorTrigger : MonoBehaviour
             activated = true;
             Debug.Log("Player entered the door!");
             RoomManager.Instance.GenerateNextRoom(this);
-            canActivate = false;
             Destroy(transform.parent.gameObject);
         }
         else if (levelChance >= 5)
