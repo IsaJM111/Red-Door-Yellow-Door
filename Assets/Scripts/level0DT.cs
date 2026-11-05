@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Level0MDoorTrigger : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
@@ -13,7 +12,6 @@ public class Level0MDoorTrigger : MonoBehaviour
             return;
         }
         Debug.Log("Player entered the door!");
-        SceneManager.LoadSceneAsync("MainScene");
-        RoomManager.Instance.GenerateFirstRoom();
+        SceneManager.LoadSceneAsync("MeadowLevel");
     }
 }

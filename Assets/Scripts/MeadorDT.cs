@@ -13,7 +13,7 @@ public class MDoorTrigger : MonoBehaviour
             return;
         }
         Debug.Log("Player entered the door!");
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadSceneAsync("ClockLevel");
         RoomManager.Instance.GenerateFirstRoom();
     }
 }

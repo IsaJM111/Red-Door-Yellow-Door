@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MeadowLevel.unity
     guid: 2f3c4d5fc915e9e47b4e651761b82d19
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 37e0b4c536bd5df438b379f4085d9f7f
+  - enabled: 1
+    path: Assets/Level0.unity
+    guid: 33943facf7cdbfb4ca5240811724bbb9
+  - enabled: 1
+    path: Assets/Scenes/ClockLevel.unity
+    guid: 39f2af35c76a2ec428209a4f6f93adfe
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
